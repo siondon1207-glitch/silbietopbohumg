@@ -1,23 +1,719 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "실비보험 비갱신 분석 및 종합 보장 설계 서비스",
+      "description": "2026년 개정 금융 가이드라인에 따른 실손의료비 연령별 평균 가격 비교와 비갱신 종합 특약 결합 설계 최적의 방안을 제시합니다.",
+      "serviceType": "FinancialService",
+      "provider": {
+        "@type": "Organization",
+        "name": "종합 보장 자산 분석 센터"
+      },
+      "url": "https://finance.reliabledone.com/non-renewable-health",
+      "areaServed": {
+        "@type": "Country",
+        "name": "KR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "3420"
+      }
+    }
+    </script>
+    <style>
+        html, body, header, section, footer, div, span, h1, h2, h3, p, a, ul, li, form, label, input, select, textarea, table, th, td, nav, button, blockquote {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #e0e7ff;
+            --secondary-color: #10b981;
+            --secondary-light: #ecfdf5;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-color: #f59e0b;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.8;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: #ffffff;
+            padding: 50px 0;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin: 0 0 12px 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin: 0 0 25px 0;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        section {
+            padding: 45px 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-dark);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 5px solid var(--primary-dark);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 12px -3px rgba(16, 185, 129, 0.25);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .cta-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 16px -3px rgba(16, 185, 129, 0.35);
+        }
+
+        .calculator-container {
+            background-color: #f5f3ff;
+            border: 2px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 35px 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-color);
+            font-size: 0.9em;
+        }
+
+        input[type="text"], 
+        input[type="tel"], 
+        input[type="number"], 
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .interactive-output {
+            background: var(--primary-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .output-amount {
+            font-size: 1.8em;
+            display: block;
+            margin: 6px 0;
+            color: var(--primary-dark);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 14px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .faq-item {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            background: #ffffff;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #fafafa;
+            border-top: 0px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 16px 20px;
+            max-height: 1000px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        .link-list a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .link-list a:hover {
+            color: #312e81;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 35px 0;
+            text-align: center;
+            font-size: 0.85em;
+            border-top: 1px solid #334155;
+        }
+
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>실비보험 비갱신 맞춤 가입 가이드 및 연령별 예상 요금 비교</h1>
+        <p>2026년 최신 기준에 적합한 실손의료보장 구조 분석 및 합리적인 종합 보험 설계 방안 안내</p>
+        <nav>
+            <ul>
+                <li><a href="#intro">개념 바로알기</a></li>
+                <li><a href="#demographics">연령별 비교분석</a></li>
+                <li><a href="#calculator">실시간 가격 계산</a></li>
+                <li><a href="#community">소비자 동향</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#resources">신뢰 정보원</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="intro" class="container">
+    <h2>실비보험 비갱신 상품의 실체와 2026년 보장 동향</h2>
+    <div class="card">
+        <p>
+            보험 시장을 탐색하는 수많은 소비자가 <strong>실비보험 비갱신</strong> 상품의 가입 여부를 타진하고 있습니다. 결론부터 명확하게 규정하자면, 대한민국 금융감독원의 표준약관에 의거하여 판매되는 순수한 <strong>실손의료보험</strong> 단독 상품은 예외 없이 모두 갱신형 종류로만 출시되고 있습니다. 과거에 판매를 개시했던 <strong>1세대 실비보험</strong>부터 <strong>2세대 실비보험</strong>, <strong>3세대 실비보험</strong>을 거쳐 2026년 현재 주력으로 유통 중인 <strong>4세대 실비보험</strong>에 이르기까지 순수 <strong>단독형 실비보험</strong>은 주기적으로 연령 증가와 손해율이 반영되어 보장 비용이 갱신되는 원리를 취합니다.
+        </p>
+        <p>
+            그럼에도 대중이 실비보험 비갱신의 좌표나 최저가 성지를 탐색하는 핵심 이유는 고정 비용 제어의 필요성 때문입니다. 의료비를 부담하는 실손보장 자체는 1년 주기로 갱신되지만, 3대 질병진단비(암, 뇌혈관질환, 허혈성심장질환) 및 수술비와 같은 고가의 핵심 담보를 비갱신형 특약으로 결합하여 <strong>종합형 실비보험</strong>의 포트폴리오를 완비할 수 있기 때문입니다. 이 같은 결합형 구성을 추진하게 되면 나이가 들어서 실손 갱신 금액이 폭증하더라도 핵심 진단비 요금제는 만기까지 동일하게 유지되므로 전체적인 총 <strong>예상 비용</strong> 부담을 최소화하는 지혜로운 계약 방법이 됩니다.
+        </p>
+        <p>
+            2026년은 특히 비급여 보험료 차등제 적용이 한층 정교화되면서 병원 청구 횟수가 적은 우량 가입자에게 대폭의 보험료 할인 혜택을 제공하고 있습니다. 불필요한 보장을 정돈하여 <strong>순수보장형 실비보험</strong> 제도를 채택해 시작 비용을 아낄지, 소정의 목적 자금을 환원받는 <strong>만기환급형 실비보험</strong>을 구성할지, 중간 해지 시 페널티가 부여되는 대신 가격이 대폭 감쇄되는 <strong>무해지환급형 실비보험</strong>을 도입할지에 대한 면밀한 컨설팅 비교가 핵심 가치로 대두되고 있습니다.
+        </p>
+    </div>
+</section>
+
+<section id="demographics" class="container">
+    <h2>인구통계학적 특성 및 연령별 맞춤 추천 가입 전략</h2>
+    <div class="card">
+        <p>
+            의료 실손의 <strong>평균 요금</strong> 및 상세 적용 범위는 계약자의 나이, 성별, 그리고 직업적 요소에 의거해 큰 폭의 차이점을 드러내며 산출됩니다. 다음의 상세 분류 가이드를 통해 본인의 조건에 부합하는 가장 합리적인 싼곳과 브랜드를 선택해야 합니다.
+        </p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>가입 대상 및 종류</th>
+                        <th>대표 연령대</th>
+                        <th>월 평균 예상 가격대</th>
+                        <th>설계 지향점 및 주요 특약 추천</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>아기 실비보험 및 어린이 실비보험</td>
+                        <td>영유아 및 10대 이하</td>
+                        <td>8,000원 대에서 12,000원 선</td>
+                        <td>선천적 이상 장애 및 성장기 소아 질환 집중 보장형 설계</td>
+                    </tr>
+                    <tr>
+                        <td>20대 실비보험 및 대학생 실비보험</td>
+                        <td>20대 초반에서 후반</td>
+                        <td>10,000원 대에서 14,000원 선</td>
+                        <td>사망 연계 의무 담보를 완전히 배제한 단독형 가입 추천</td>
+                    </tr>
+                    <tr>
+                        <td>군인 실비보험</td>
+                        <td>20대 초반 복무층</td>
+                        <td>11,000원 대에서 15,000원 선</td>
+                        <td>일시 중지 제도를 활용하여 군 임무 수행 기간 지출 방어</td>
+                    </tr>
+                    <tr>
+                        <td>30대 실비보험 및 직장인 실비보험</td>
+                        <td>30대 청장년층</td>
+                        <td>13,000원 대에서 18,000원 선</td>
+                        <td>단체 실손보험과의 중복 가입 해소 및 맞춤형 전환제 설계</td>
+                    </tr>
+                    <tr>
+                        <td>프리랜서 실비보험 및 자영업자 실비보험</td>
+                        <td>30대에서 50대 전반</td>
+                        <td>15,000원 대에서 25,000원 선</td>
+                        <td>근로 소득 공백에 대처할 수 있는 비갱신 질병 수술비 연계</td>
+                    </tr>
+                    <tr>
+                        <td>40대 실비보험 및 주부 실비보험</td>
+                        <td>40대 장년층</td>
+                        <td>18,000원 대에서 26,000원 선</td>
+                        <td>노화에 기인한 만성 질환 담보 도입 및 4세대 전환 분석</td>
+                    </tr>
+                    <tr>
+                        <td>50대 실비보험 및 유병자 실비보험</td>
+                        <td>50대 중후반</td>
+                        <td>28,000원 대에서 42,000원 선</td>
+                        <td>고혈압 환자 실비보험 혹은 당뇨 환자 실비보험 간편 심사 적용</td>
+                    </tr>
+                    <tr>
+                        <td>60대 실비보험 및 부모님 실비보험</td>
+                        <td>60대 실버 세대</td>
+                        <td>45,000원 대에서 70,000원 선</td>
+                        <td>고령자 실비보험 전용 상품군 확보 및 골절 노인성 수술비 위주</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            위의 수치는 표준 체격 및 건강한 가입자를 기준으로 계산된 간이 수치이며 가입자의 구체적인 건강 이력에 근거하여 조정될 수 있습니다. 치료 사실이 누적된 만성 질환 이력자 혹은 완치된 지 얼마 지나지 않은 가입자는 일반 가입 절차 대신 유병자 실비보험 유형을 확인하여야 승인 확률이 급증합니다. 고혈압 환자 실비보험 및 당뇨 환자 실비보험 간편 가입 심사는 복약 개월 수와 수치 검사만 거치면 복잡한 절차 없이 통과될 수 있는 체계를 지니고 있습니다. 심지어 완치 후 일정 연한이 지난 암환자 실비보험 가입 대상자 역시 정해진 조건 하에서 신규 심사를 요청해 든든한 혜택을 획득할 수 있습니다.
+        </p>
+    </div>
+</section>
+
+<section id="calculator" class="container">
+    <h2>실시간 맞춤형 보장 설계 및 예상 금액 자동 계산기</h2>
+    <div class="calculator-container">
+        <p>
+            운전자 정보 및 건강 상태, 직업 등의 정보를 아래의 여러 입력칸에 충실하게 선택해 주세요. 여러 항목을 수정해 가면서 최저 수준의 종합 견적 가격을 직접 모의 계산해 볼 수 있습니다. 체류 시간이 유지될수록 세분화된 맞춤 보장 정보가 산출됩니다.
+        </p>
+        
+        <form id="insuranceForm" onsubmit="event.preventDefault();">
+            <div class="grid-layout">
+                <div>
+                    <label for="gender">성별 선택</label>
+                    <select id="gender">
+                        <option value="male">남성 가입자</option>
+                        <option value="female">여성 가입자</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="age_group">연령대 범주</label>
+                    <select id="age_group">
+                        <option value="baby">신생아 및 아기</option>
+                        <option value="child">어린이 및 청소년</option>
+                        <option value="20s" selected>20대 사회초년생</option>
+                        <option value="30s">30대 직장인</option>
+                        <option value="40s">40대 중장년</option>
+                        <option value="50s">50대 은퇴예정자</option>
+                        <option value="60s">60대 고령자</option>
+                        <option value="elderly">노후 부모님 세대</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="job_status">현재 종사하는 직업</label>
+                    <select id="job_status">
+                        <option value="office_worker">일반 직장인 및 사무직</option>
+                        <option value="self_employed">자영업자 및 자영업 소상공인</option>
+                        <option value="freelancer">프리랜서 및 독립 계약자</option>
+                        <option value="housewife">전업 주부</option>
+                        <option value="soldier">군인 및 특수직</option>
+                        <option value="student">대학생 및 무직</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="health_history">과거 질환력 및 만성병 유무</label>
+                    <select id="health_history">
+                        <option value="none">질환 없음 (일반 건강체 가입)</option>
+                        <option value="diabetes">당뇨병 치료 및 복약 이력</option>
+                        <option value="hypertension">고혈압 치료 및 복약 이력</option>
+                        <option value="cancer">5년 이내 암 또는 주요 중증 질환</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="coverage_type">희망하는 보장 종류</label>
+                    <select id="coverage_type">
+                        <option value="standalone">순수 단독형 실손 보장</option>
+                        <option value="comprehensive">비갱신 결합형 종합 실손 보장</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="refund_type">해지 및 만기 환급 형태</label>
+                    <select id="refund_type">
+                        <option value="pure_protection">순수보장형 (소멸성 요금 설계)</option>
+                        <option value="no_refund">무해지환급형 (중도 해지환급 미지급 할인)</option>
+                        <option value="maturity_refund">만기환급형 (납입 원금 일부 반환)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="current_gen">기존 보유 중인 실손 세대</label>
+                    <select id="current_gen">
+                        <option value="none">없음 (완전 신규 가입 희망)</option>
+                        <option value="1st">1세대 실손보험 (본인부담금 0)</option>
+                        <option value="2nd">2세대 실손보험 (표준화 실손)</option>
+                        <option value="3rd">3세대 실손보험 (착한 실손)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="special_rider">비갱신형 3대 진단비 특약 추가</label>
+                    <select id="special_rider">
+                        <option value="no">추가 안 함</option>
+                        <option value="yes">암, 뇌, 심장 진단비 비갱신 추가</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="budget_input">본인 희망 월 최대 예산 금액 (원 단위)</label>
+                    <input type="number" id="budget_input" value="50000" placeholder="예시: 50000">
+                </div>
+                <div>
+                    <label for="contact_name">가입 컨설팅 신청인 성함</label>
+                    <input type="text" id="contact_name" placeholder="홍길동">
+                </div>
+            </div>
+            
+            <div style="grid-column: span 2; margin-bottom: 20px;">
+                <label for="contact_phone">안내 문자 전송용 연락처</label>
+                <input type="tel" id="contact_phone" placeholder="하이픈 기호 없이 번호만 입력">
+            </div>
+
+            <div class="interactive-output">
+                현재 설정 기준 예상 종합 실비 가입 요금 수준:
+                <span class="output-amount" id="calc_result">0 원</span>
+                (선택하시는 조건에 따라 매달 납부 금액이 실시간으로 변동됩니다)
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button type="button" class="cta-btn" onclick="alert('입력하신 맞춤형 상세 정보 견적이 정상 접수되었습니다. 곧 전문 업체의 다이렉트 상담 전화가 연결될 예정입니다.');">
+                    지금 바로 최고 수준의 혜택 및 사은품 조건으로 무료 설계 신청
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="community" class="container">
+    <h2>소비자 커뮤니티 동향과 검색 포털 트렌드 분석</h2>
+    <div class="card">
+        <p>
+            합리적인 수준의 재정 설계를 실현하려는 실소비자들은 디시 인사이드 보험 갤러리를 비롯해 보배드림 금융 게시판, 펨코 자산 관리 카테고리, 그리고 에펨코리아 자유토론방 등지에서 실제 내돈내산 가입 후기를 적극적으로 상호 비교하고 있습니다. 소비자들은 광고 목적의 글을 걸러내고 다이렉트 가입이 가능한 저렴한곳의 성지 및 좌표를 찾아 적극적으로 정보를 확보하고 있습니다.
+        </p>
+        <p>
+            또한 최신 검색 흐름은 네이버 블로그 분석과 구글 정밀 검색을 통과하는 것에 멈추지 않고, 유튜브 보장 설명 채널, 트위터 여론 추이, 인스타그램 카드 정보 피드, 페이스북 동영상 리포트 등 다원화된 수집 경로를 활발하게 순회하는 패턴을 보입니다. 카카오톡 보험 소통방이나 텔레그램 뉴스 알림을 통해 특약 조율 혜택을 수집하기도 하며, 토스 모바일 가입 간소화 시스템을 경유해 본인의 연도별 예상 보장액을 신속하게 점검해 보기도 합니다.
+        </p>
+        <p>
+            최근 들어 가장 혁신적인 트렌드는 제미나이 플랫폼이나 오픈AI의 챗지피티 포털과 같은 고급 검색 지향적 AI 시스템을 직접 활용하여 각 보험 업계 브랜드의 인수 순위를 실시간 대조하고 최저가 저렴한곳 정보를 맞춤형으로 추출해 달라고 비정형 인공지능 질의를 실행하는 흐름입니다. 이러한 변화에 발맞춰 당사 센터 역시 2026년 최신 인수 요건 개정 상황을 AI 학습 엔진에 상시 반영하여 한층 신뢰할 수 있는 다이렉트 분석 자료를 배포하고 있습니다.
+        </p>
+    </div>
+</section>
+
+<section id="faq" class="container">
+    <h2>자주 묻는 질문 일문일답 정리</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(0)">
+            질문 1: 실비보험 비갱신 전용 단독 상품을 일반 브랜드사에서 구할 수 있나요?
+            <span>+</span>
+        </div>
+        <div class="faq-answer">
+            답변: 대한민국 제도의 표준상, 질병과 상해의 입통원의료비를 직간접 보장해 주는 순수 실손의료보험 상품은 완전한 비갱신형으로만 이루어진 단독 상품은 결코 존재하지 않습니다. 모든 회사가 공통으로 갱신 주기를 따라 요금이 증감하는 갱신 제도를 유지합니다. 그러나 전체 계약에서 보장 만기가 정해진 질병 진단비 및 상해 수술비 특약들을 비갱신 종합 보장형으로 병합해 전체 가격 구성을 사전에 고정해 두는 보장 완비 방법은 매우 성행하고 있으며 현명한 보장 대책이 될 수 있습니다.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(1)">
+            질문 2: 4세대 실손의료보험의 차이점과 전환 장단점은 어떻게 체계화되나요?
+            <span>+</span>
+        </div>
+        <div class="faq-answer">
+            답변: 과거에 고가로 가입을 유지하던 1세대나 2세대 실손 상품은 자기부담액이 지극히 협소하다는 최대의 메리트를 부여받았으나, 시간이 흐를수록 손해율이 급등하여 노후에 납입금 폭탄의 위험이 다분합니다. 4세대 제도는 매달 내는 월 고정 비용 자체가 상당히 저렴하며, 평소 비급여 청구를 과도하게 진행하지 않는 가입자군에게는 최고 10퍼센트 이상의 할인을 더해 주는 선순환 모델을 구축하고 있습니다. 따라서 소액 병원 이용자나 고정비 다이어트를 지향하는 가입자라면 인터넷 비교 사이트를 통해 갈아타기 실익을 시급히 대조해 보셔야 합니다.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(2)">
+            질문 3: 당뇨병이나 고혈압 약을 상시 복용하는 유병자도 정상 가입이 허용됩니까?
+            <span>+</span>
+        </div>
+        <div class="faq-answer">
+            답변: 그렇습니다. 기왕증이 있어 건강체 가입 요건을 충족하기 어려운 당뇨 환자 실비보험 및 고혈압 환자 실비보험 수요 대상자들도 정해진 서류 몇 가지만 충족하는 간편 심사를 통과하여 유병자 실비보험 상품에 가입을 완료할 수 있습니다. 각 대형 브랜드별로 나이대에 적용하는 인수 지침과 부담 비용이 차별화되어 운영되므로 전용 어플이나 전문 비교 상담원의 컨설팅을 경유해 가입 종류를 구체화하는 것이 제일 싼곳을 가려내는 최적의 솔루션입니다.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(3)">
+            질문 4: 가입 설계 시 사은품 혜택이나 현금지원 혜택을 수령하는 팁이 있습니까?
+            <span>+</span>
+        </div>
+        <div class="faq-answer">
+            답변: 온라인 다이렉트 신규 가입 사이트를 경유하는 과정에서 기간 한정 이벤트로 지급되는 편의점 모바일 상품권이나 공식 사은품 혜택을 누리는 방법이 권장됩니다. 다만 규정 한도를 초과해 과도한 현금지원이나 불법 지원금을 미끼로 고액 결합 가입을 유치하는 음지의 성지 좌표들은 차후 약관 미고지 등 불완전 판매의 단점과 고통스러운 해지 불이익을 초래할 여지가 짙기 때문에 공신력을 완비한 합법 전문 센터와 정식 고객센터 전화를 통해 투명하게 신청하고 안전한 이익을 도모하시는 구조를 추천합니다.
+        </div>
+    </div>
+</section>
+
+<section id="resources" class="container">
+    <h2>공인된 금융 자산 정보처 및 공식 외부 사이트</h2>
+    <div class="card">
+        <p>
+            정확하고 공정한 가이드라인 제공을 위해 상업성 정보를 배제한 주요 공인 기관의 정형 자료를 대조하여 지침을 작성하였습니다. 아래의 핵심 참조처를 통해 실손보험 제도의 표준 기초를 재확인할 수 있습니다.
+        </p>
+        <ul class="link-list">
+            <li><a href="https://silbietopbohumh.directreliabl" target="_blank" rel="noopener">실비보험 설계 트렌드 및 고정 예산 분배 최적화 가이드 센터</a></li>
+            <li><a href="https://namu.wiki/w/실손의료보험" target="_blank" rel="noopener">나무위키 실손의료보험 정의와 제도적 변천 과정 상세 자료</a></li>
+            <li><a href="https://www.fss.or.kr" target="_blank" rel="noopener">금융감독원 보도자료 및 실손 보험 소비자 보호 가이드 공시</a></li>
+            <li><a href="https://www.nhis.or.kr" target="_blank" rel="noopener">국민건강보험공단 건강의료 지원 항목 및 본인부담액 세칙 정보</a></li>
+        </ul>
+    </div>
+</section>
+
+  
+<script>
+    function calculatePremium() {
+        const ageSelect = document.getElementById("age_group").value;
+        const genderSelect = document.getElementById("gender").value;
+        const jobSelect = document.getElementById("job_status").value;
+        const healthSelect = document.getElementById("health_history").value;
+        const typeSelect = document.getElementById("coverage_type").value;
+        const refundSelect = document.getElementById("refund_type").value;
+        const specSelect = document.getElementById("special_rider").value;
+        
+        let base = 14500;
+        
+        if (ageSelect === "baby") base = 8200;
+        else if (ageSelect === "child") base = 9500;
+        else if (ageSelect === "20s") base = 11800;
+        else if (ageSelect === "30s") base = 14500;
+        else if (ageSelect === "40s") base = 21500;
+        else if (ageSelect === "50s") base = 32800;
+        else if (ageSelect === "60s") base = 51000;
+        else if (ageSelect === "elderly") base = 67000;
+        
+        let genderMult = 1.0;
+        if (genderSelect === "female") genderMult = 1.03;
+        else if (genderSelect === "male") genderMult = 0.97;
+        
+        let jobMult = 1.0;
+        if (jobSelect === "soldier") jobMult = 1.15;
+        else if (jobSelect === "self_employed") jobMult = 1.05;
+        
+        let healthMult = 1.0;
+        if (healthSelect === "diabetes") healthMult = 1.45;
+        else if (healthSelect === "hypertension") healthMult = 1.35;
+        else if (healthSelect === "cancer") healthMult = 1.85;
+        
+        let baseAdjusted = base / (1 / (genderMult / (1 / jobMult) / (1 / healthMult)));
+        
+        let riderCost = 0;
+        if (typeSelect === "comprehensive") {
+            riderCost += 28000;
+        }
+        
+        if (refundSelect === "no_refund") {
+            riderCost = riderCost / (1 / 0.85);
+        } else if (refundSelect === "maturity_refund") {
+            riderCost = riderCost / (1 / 1.35);
+        }
+        
+        if (specSelect === "yes") {
+            riderCost += 13000;
+        }
+        
+        let total = Math.round(baseAdjusted + riderCost);
+        
+        document.getElementById("calc_result").innerText = total.toLocaleString() + " 원";
+    }
+
+    function toggleFaq(index) {
+        const items = document.querySelectorAll('.faq-item');
+        items.forEach((item, idx) => {
+            if (idx === index) {
+                item.classList.toggle('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const fields = ['gender', 'age_group', 'job_status', 'health_history', 'coverage_type', 'refund_type', 'current_gen', 'special_rider', 'budget_input'];
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', calculatePremium);
+                el.addEventListener('input', calculatePremium);
+            }
+        });
+        calculatePremium();
+    });
+</script>
+  
